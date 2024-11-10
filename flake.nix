@@ -71,8 +71,9 @@
 
                 serviceConfig = {
                   User = "nobody";
-                  ExecStartPre = "${pkgs.coreutils}/bin/cp ${configFile} /run/ame-mail-sender/config.toml";
-                  ExecStart = lib.mkForce "${self.packages.${system}.default}/bin/ame-mail-sender --config /run/ame-mail-sender/config.toml";
+                  RuntimeDirectory = "ame-mail-sender";
+                  RuntimeDirectoryMode = "0700";
+                  ExecStart = lib.mkForce "${self.packages.${system}.default}/bin/ame-mail-sender -c ${configFile}";
                   Restart = "always";
                   RestartSec = "10";
                 };
