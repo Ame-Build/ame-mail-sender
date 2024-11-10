@@ -20,6 +20,9 @@
           version = "0.1.0";
           src = ./.;
           cargoLock.lockFile = ./Cargo.lock;
+          cargoLock.outputHashes = {
+            "ame-bus-0.1.0" = "sha256-KDsYpJ32JhsVnB9uKVyLOcWBOt4+nWjkT7ZDFATJj30=";
+          };
           buildInputs = with pkgs; [ pkg-config ];
         };
       in
